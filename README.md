@@ -10,6 +10,11 @@
 
 ## 扫码体验
 
+<p>
+<img src="https://cdn.it120.cc/apifactory/2019/04/09/a04b4041d45dcbed6cdb62b7c6d52ab4.jpg" width="200px">
+</p>
+
+
 ## 关于我们
 
 之前一起工作的小伙伴创建了“星空节点”工作室。
