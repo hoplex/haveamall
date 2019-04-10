@@ -1,0 +1,27 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+  <view class="userinfo" >
+    <image class="userinfo_avatar" src="/images/icons/avatar.png" background-size="cover"></image>
+    <view class="username_block">
+      <text class="username_block_name">{{nickname}}</text>
+    </view>
+  </view>
+  <view class="itemblock">
+
+    <view class="item">
+      <image class="item_icon" src="/images/icons/my_order.png"></image>
+      <view class="item_wrap_withborder">
+        <text class="item_title">订单</text>
+        <image class="arrow_right" src="/images/icons/icon_next.png"></image>
+      </view>
+    </view>
+
+  </view>
+
+</view>
+
+<!-- <button class='bt-login' hover-class='none' open-type='getUserInfo' bindgetuserinfo='getUserInfo' wx:if="{{ userInfo.token==null }}">登录</button> -->
+
+<button class='bt-item-order' style='opacity:0;' hover-class='none' open-type='getUserInfo' bindgetuserinfo='toOrderList'></button>
+
+<image class='shadow-view-top' src='/images/icons/shadow_bottom.png'></image>

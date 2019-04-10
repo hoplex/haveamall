@@ -1,0 +1,60 @@
+/**index.wxss**/
+@import "../../widget/goods-item/goods-item.wxss";
+@import "../../widget/tags/tags.wxss";
+@import "../../widget/common/common.wxss";
+
+.swiper {
+  height: 445rpx;
+  width: 100%;
+}
+
+.swiper-item-box {
+  border-left: 8rpx solid #fff;
+  border-right: 8rpx solid #fff;
+}
+
+.slide-image {
+  width: 100%;
+  height: 336rpx;
+}
+
+.slide-text {
+  margin-top: -10rpx;
+  background-color: #fff;
+  color: #444;
+  font-size: 32rpx;
+  line-height: 45rpx;
+  padding-top: 32rpx;
+  padding-left: 10rpx;
+  padding-right: 12rpx;
+  padding-bottom: 32rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.swiper-dots {
+  height: 10rpx;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 45%;
+}
+
+.dot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  margin-right: 14rpx;
+  background-color: #ebebeb;
+}
+
+.active {
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #f64040;
+}
+
+.background-fff {
+  background-color: #fff;
+}

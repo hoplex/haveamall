@@ -1,0 +1,33 @@
+<template name='goods-item'>
+  <view class='goods-list-empty'>
+    <view class='background-fff'>
+      <view class='item-goods-bg' wx:for='{{ retArr }}' wx:key='goodsId' bindtap='onItemGoods' id='{{ item.id }}'>
+        <image class='item-goods-img' mode='aspectFit' src='{{ item.pic }}'></image>
+        <view class='item-goods-right'>
+          <text class='item-goods-title'>{{ item.title }}</text>
+          <text class='item-goods-merchant'>{{ item.merchantName }}</text>
+
+          <view class='item-goods-tag-bg'>
+            <view class='item-goods-tag-sold' wx:if='{{ item.tagType.length > 0 }}'>
+              <view class='item-goods-tag-sold-point'></view>
+              <text class='item-goods-tag-sold-text'>{{ item.tagType }}</text>
+            </view>
+
+            <view class='item-goods-tag-stock' wx:if='{{ item.tagTime.length > 0 }}'>
+              <view class='item-goods-tag-stock-point'></view>
+              <text class='item-goods-tag-stock-text'>{{ item.tagTime }}</text>
+            </view>
+          </view>
+
+          <view class='item-goods-price-status-bg'>
+            <view class='item-goods-price-bg'>
+              <text class='item-goods-price'>￥{{ item.priceFloat }}</text>
+              <text class='item-goods-retailPrice'>￥{{ item.retailPriceFloat }}</text>
+            </view>
+            <view class='item-goods-status-bg status-{{ item.status }}'>{{ item.mStatusName }}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

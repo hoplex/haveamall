@@ -1,0 +1,5 @@
+<!--pages/my/orderprocess/orderresult/orderresult.wxml-->
+<view class='container'>
+  <image class='iv-result' src='/images/icons/bg_result.png' bindtap='onClickCheck'></image>
+
+</view>

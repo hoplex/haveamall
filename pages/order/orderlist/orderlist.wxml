@@ -1,0 +1,48 @@
+<!--pages/my/orderlist/orderlist.wxml-->
+<view class="container">
+  <view class="orderlist">
+    <view class="order_item" wx:for="{{datas}}" wx:key="orderId" catchtap="orderDetail" id="{{item.orderId}}">
+      <view class="item_head">
+        <image class="merchant_icon" src="/images/icons/orderlist_merchant.png"></image>
+        <text class="merchant_name">青姿</text>
+        <image class="arrow" src="/images/icons/arrow_right.png"></image>
+        <text class="order_status" wx:if="{{item.status==-1}}">交易取消</text>
+        <text class="order_status" wx:elif="{{item.status==0}}">待支付</text>
+        <text class="order_status" wx:elif="{{item.status==1}}">待发货</text>
+        <text class="order_status" wx:elif="{{item.status==2}}">已发货，待确认</text>
+        <text class="order_status" wx:elif="{{item.status==3}}">待评价</text>
+        <text class="order_status" wx:elif="{{item.status==4}}">交易成功</text>
+        <text class="order_status" wx:else></text>
+      </view>
+      <view class="item_content">
+        <view class="goods" wx:for="{{item.orderGoods}}" wx:for-item="goodsitem" wx:key="goodsId">
+          <image src="{{goodsitem.logo}}"></image>
+          <view class="goodsname_block">
+            <view class="goodsname">
+              <text>{{goodsitem.title}}</text>
+            </view>
+            <view class="goodsprice">
+              <text class="price">¥{{goodsitem.price}}</text>
+              <text class="retailprice">¥{{goodsitem.retailPrice}}</text>
+              <text class="quantity">数量: {{goodsitem.quantity}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="item_foot">
+        <text class="payment_title">实付款:</text>
+        <text class="payment_symbol">¥</text>
+        <text class="payment_amount">{{item.orderAmount}}</text>
+        <view class="action_button" wx:if="{{item.status==11}}">付款</view>
+      </view>
+    </view>
+  </view>
+
+
+  <loading hidden="{{loadingHidden}}">
+    加载中
+  </loading>
+  <modal title="提示" confirm-text="确定" no-cancel hidden="{{modalHidden}}" bindconfirm="Request">
+    <icon type="warn" size="20" />网络异常，稍后再试
+  </modal>
+</view>

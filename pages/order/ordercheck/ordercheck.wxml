@@ -1,0 +1,46 @@
+<!--pages/my/orderprocess/ordercheck/ordercheck.wxml-->
+
+<view class="container">
+  <view class="order_content">
+    <view class="content_head">订单内容</view>
+    <view class="content_body">
+      <view wx:for="{{datas.orders}}" wx:key="orderId" wx:for-item="ordersitem">
+        <view class="goods" wx:for="{{ordersitem.orderGoods}}" wx:key="goodsId">
+          <image src="{{item.logo}}"></image>
+          <view class="goodsname_block">
+            <view class="goodsname">
+              <text>{{item.title}}</text>
+            </view>
+            <view class="goodsprice">
+              <text class="price">¥{{item.price}}</text>
+              <text class="retailprice">¥{{item.retailPrice}}</text>
+              <text class="quantity">数量: {{item.quantity}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="content_foot">
+      <text class="payment_title">实付款:</text>
+      <text class="payment_symbol">¥</text>
+      <text class="payment_amount">{{datas.orderAmount}}</text>
+    </view>
+  </view>
+  <view class="paymode">
+    <view class="paymode_head">请选择付款方式</view>
+    <view class="paymode_content">
+      <view class="paymode_wechat">
+        <image class="image_wechat" src="/images/icons/paymode_wechat.png"></image>
+        <text>微信支付</text>
+        <image class="image_selected" src="/images/icons/paymode_selected.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <button class='purchase_tab' style="background-color:{{ buttonClicked ? 'rgba(246, 64, 64, 0.5)':'#f64040' }}" bindtap='submit' disabled='{{ buttonClicked }}'>确认支付</button>
+
+  <loading hidden="{{loadingHidden}}">加载中</loading>
+  <modal title="提示" confirm-text="确定" no-cancel hidden="{{modalHidden}}" bindconfirm="Request">
+    <icon type="warn" size="20" />网络异常，稍后再试
+  </modal>
+</view>

@@ -1,0 +1,175 @@
+/* pages/my/orderprocess/ordercheck/ordercheck.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.order_content {
+  margin-top: 20rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.content_head {
+  height: 88rpx;
+  margin-left: 24rpx;
+  border-bottom: solid 1rpx #e6e6e6;
+  line-height: 88rpx;
+  color: #989898;
+  font-size: 28rpx;
+}
+
+.content_body {
+  display: flex;
+  flex-direction: column;
+  margin-left: 24rpx;
+}
+
+.goods {
+  height: 160rpx;
+  display: flex;
+  padding-right: 24rpx;
+  align-items: center;
+  border-bottom: solid 1rpx #e6e6e6;
+}
+
+.goods image {
+  width: 120rpx;
+  height: 120rpx;
+  flex: none;
+}
+
+.goodsname_block {
+  height: 120rpx;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.goodsname {
+  display: flex;
+  max-height: 60rpx;
+  color: #333;
+  font-size: 26rpx;
+  align-items: baseline;
+}
+
+.goodsprice {
+  margin-top: 15rpx;
+  display: flex;
+  align-items: baseline;
+}
+
+.goodsprice .price {
+  color: #333;
+  font-size: 26rpx;
+}
+
+.goodsprice .retailprice {
+  color: #b2b2b2;
+  font-size: 22rpx;
+  text-decoration: line-through;
+  margin-left: 10rpx;
+}
+
+.goodsprice .quantity {
+  color: #333;
+  font-size: 26rpx;
+  margin-left: 40rpx;
+}
+
+.content_foot {
+  height: 88rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  display: flex;
+  align-items: center;
+}
+
+.payment_title {
+  font-size: 24rpx;
+  color: #666;
+  flex: none;
+}
+
+.payment_symbol {
+  font-size: 22rpx;
+  color: #f64040;
+  margin-left: 10rpx;
+  flex: none;
+}
+
+.payment_amount {
+  font-size: 30rpx;
+  color: #f64040;
+  margin-left: 5rpx;
+  flex: auto;
+}
+
+.paymode {
+  margin-top: 20rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 120rpx;
+}
+
+.paymode_head {
+  height: 88rpx;
+  margin-left: 24rpx;
+  border-bottom: solid 1rpx #e6e6e6;
+  line-height: 88rpx;
+  color: #989898;
+  font-size: 28rpx;
+}
+
+.paymode_content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 24rpx;
+}
+
+.paymode_wechat {
+  display: flex;
+  height: 104rpx;
+  align-items: center;
+}
+
+.image_wechat {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.paymode_wechat text {
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  flex: auto;
+}
+
+.image_selected {
+  width: 40rpx;
+  height: 40rpx;
+  flex: none;
+  margin-right: 24rpx;
+}
+
+.purchase_tab {
+  position: fixed;
+  background-color: #f64040;
+  bottom: -1rpx;
+  width: 100%;
+  font-size: 34rpx;
+  color: #fff;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 0;
+}
+
+.purchase_tab::after {
+  border-radius: 0;
+}

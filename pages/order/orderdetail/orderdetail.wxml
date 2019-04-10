@@ -1,0 +1,46 @@
+<!--pages/my/orderdetail/orderdetail.wxml-->
+<view class="container">
+  <view class="orderinfo">
+    <view class="orderno_line">
+      <text class="orderno">订单号码: {{datas.orderSn}}</text>
+      <text class="order_status" wx:if="{{datas.status == 0}}">待支付</text>
+      <text class="order_status" wx:elif="{{datas.status == 1}}">待发货</text>
+      <text class="order_status" wx:elif="{{datas.status == 2}}">已发货，待确认</text>
+      <text class="order_status" wx:elif="{{datas.status == 3}}">待评价</text>
+      <text class="order_status" wx:elif="{{datas.status == 4}}">交易成功</text>
+      <text class="order_status" wx:elif="{{datas.status == -1}}">订单取消</text>
+      <text class="order_status" wx:else></text>
+    </view>
+    <text>下单时间: {{addTime}}</text>
+    <text wx:if="{{datas.payTime!='' }}">支付时间: {{payTime}}</text>
+  </view>
+  <view class="item_content">
+    <view class="goods" wx:for="{{datas.orderGoods}}" wx:for-item="goodsitem" wx:key="goodsId">
+      <image src="{{goodsitem.logo}}"></image>
+      <view class="goodsname_block">
+        <view class="goodsname">
+          <text>{{goodsitem.title}}</text>
+        </view>
+        <view class="goodsprice">
+          <text class="price">¥{{goodsitem.price}}</text>
+          <text class="retailprice">¥{{goodsitem.retailPrice}}</text>
+          <text class="quantity">数量: {{goodsitem.quantity}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="item_foot">
+      <text class="payment_title">实付款:</text>
+      <text class="payment_symbol">¥</text>
+      <text class="payment_amount">{{datas.orderAmount}}</text>
+      <button class="action_button" bindtap="submit" disabled='{{ buttonClicked }}' wx:if="{{datas.status == 11}}">付款</button>
+      <view class="isrefund">7天无理由退换货</view>
+    </view>
+  </view>
+
+  <loading hidden="{{loadingHidden}}">
+    加载中
+  </loading>
+  <modal title="提示" confirm-text="确定" no-cancel hidden="{{modalHidden}}" bindconfirm="Request">
+    <icon type="warn" size="20" />网络异常，稍后再试
+  </modal>
+</view>

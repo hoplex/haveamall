@@ -1,0 +1,141 @@
+
+@import "../../widget/common/common.wxss";
+
+.goods-list-empty {
+  height: 940rpx;
+}
+
+
+.item-goods-bg {
+  display: flex;
+  flex-direction: row;
+  margin-left: 24rpx;
+  padding-right: 24rpx;
+  border-bottom: 2rpx solid #f8f8f8;
+}
+
+.item-goods-img {
+  width: 160rpx;
+  height: 160rpx;
+  margin-top: 38rpx;
+  margin-right: 30rpx;
+}
+
+.item-goods-right {
+  display: flex;
+  width: 73%;
+  flex-direction: column;
+}
+
+.item-goods-title {
+  font-size: 32rpx;
+  color: #2e2e2e;
+  line-height: 45rpx;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-top: 34rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-goods-merchant {
+  font-size: 22rpx;
+  color: #b2b2b2;
+  margin-top: 5rpx;
+  line-height: 30rpx;
+}
+
+.item-goods-price-status-bg {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.item-goods-status-bg {
+  margin-top: -15rpx;
+  margin-right: 14rpx;
+  height: 52rpx;
+  width: 110rpx;
+  display: flex;
+  justify-content: center;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 74rpx;
+}
+
+.status-0 {
+  color: #fff;
+  background-image: linear-gradient(-270deg, #fb7474 0%, #f85858 53%, #ff4d4d 100%);
+}
+
+.status-1 {
+  color: #b2b2b2;
+}
+
+.status-2 {
+  color: #b2b2b2;
+}
+
+.status-3 {
+  color: #fff;
+  background-image: linear-gradient(-270deg, #47d99b 0%, #34d08e 69%, #2cc785 100%);
+}
+
+.item-goods-price-bg {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8rpx;
+  align-items: center;
+  margin-bottom: 34rpx;
+}
+
+.item-goods-price {
+  font-size: 26rpx;
+  line-height: 37rpx;
+  color: #f64040;
+  font-weight: bold;
+  margin-left: -4rpx;
+}
+
+.item-goods-retailPrice {
+  font-size: 20rpx;
+  line-height: 28rpx;
+  color: #b2b2b2;
+  margin-left: 18rpx;
+  text-decoration: line-through;
+}
+
+.item-goods-tag-bg {
+  display: flex;
+  flex-direction: row;
+  margin-top: 14rpx;
+  align-items: center;
+}
+
+.item-goods-merchant-more {
+  height: 68rpx;
+  display: flex;
+  margin-top: -10rpx;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-right: 2rpx;
+  border-top: 2rpx solid #f8f8f8;
+}
+
+.item-goods-merchant-text {
+  display: flex;
+  flex-direction: row;
+  color: #b2b2b2;
+  line-height: 30rpx;
+  font-size: 22rpx;
+  justify-content: center;
+}
+
+.item-merchant-img {
+  height: 30rpx;
+  width: 30rpx;
+  margin-right: 12rpx;
+}

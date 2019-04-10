@@ -1,0 +1,6 @@
+/**app.wxss**/
+page {
+  height: 100%;
+  background-color: #f2f2f2;
+  font-family: -apple-system-font,"Microsoft YaHei",Helvetica Neue,Helvetica,sans-serif;
+}

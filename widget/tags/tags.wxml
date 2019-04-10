@@ -1,0 +1,21 @@
+<template name='tags'>
+  <view class='static-tags background-fff'>
+    <view class='tags-view-bg'>
+      <view wx:for='{{ tags }}' wx:key='tag_id'>
+        <view class="tags-item tags-{{ item.check ? 'selected' : 'unSelected' }}" bindtap='onClickTag' id='{{ index }}'>
+          {{ item.name }}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='fixed-tags background-fff' wx:if='{{ isTagShow }}' catchtouchmove='true'>
+    <view class='tags-view-bg'>
+      <view wx:for='{{ tags }}' wx:key='tag_id'>
+        <view class="tags-item tags-{{ item.check ? 'selected' : 'unSelected' }}" bindtap='onClickTag' id='{{ index }}'>
+          {{ item.name }}
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

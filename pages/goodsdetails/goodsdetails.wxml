@@ -1,0 +1,88 @@
+<!--pages/goodsdetails/goodsdetails.wxml-->
+<import src="../../widget/quantity/quantity.wxml" />
+<import src="../../widget/wxParse/wxParse.wxml" />
+
+<view class="container">
+  <view class="main_page">
+    <view class="main_info">
+      <image src="{{datas.data.basicInfo.pic}}" class="head_img" mode="aspectFill"></image>
+      <text class="title">{{datas.data.basicInfo.name}}</text>
+      <view class='buylimit_refund_item'>
+        <view class="buylimit_refund_left">
+          <image class="buylimit_item_img" mode="scaleToFill" src="/images/icons/goods_refund.png"></image>
+          <text class="buylimit_text" >七天无理由退换货</text>
+        </view>
+      </view>
+      <view class="buylimit_item2">
+        <image class="buylimit_item_img" mode="scaleToFill" src="/images/icons/goods_buylimit.png"></image>
+        <text class="buylimit_text" wx:if="{{datas.data.buyLimit>0}}">每人限购{{datas.data.buyLimit}}份</text>
+        <text class="buylimit_text" wx:else>不限购</text>
+      </view>
+    </view>
+
+    <view class="usenote">
+      <view class="usenote_title">商品描述</view>
+      <view class="usenote_content">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      </view>
+    </view>
+
+    <view class="descriptions" wx:if="{{datas.data.descriptions[0]}}">
+      <view class="descriptions_item" wx:for="{{datas.data.descriptions}}" wx:key="type">
+        <text class="descriptions_item_text" wx:if="{{item.type=='txt'}}">{{item.content}}</text>
+        <image class="descriptions_item_img" src="{{item.imgAttrib.url}}" mode="widthFix" wx:else></image>
+      </view>
+    </view>
+  </view>
+
+  <block>
+    <view class="purchase_tab">
+      <view class="purchase_tab_left">
+        <view class="purchase_tab_left_price">
+          <span class="purchase_tab_left_price_symbol">¥</span>
+          <span class="purchase_tab_left_price_price">{{datas.data.basicInfo.minPrice}}</span>
+          <span class="purchase_tab_left_price_retailprice">¥{{datas.data.basicInfo.originalPrice}}</span>
+        </view>
+        <text class="purchase_tab_left_stock">剩余{{datas.data.basicInfo.stores}}件</text>
+      </view>
+      <view class="purchase_tab_right">
+
+        <text class="purchase_tab_right_purchase" wx:if="{{ datas.data.basicInfo.status == 0}}" bindtap="toggleDialog">立即抢购
+</text>
+        <text class="purchase_tab_right_coming" wx:elif="{{ datas.data.status=='3' }}">即将开始</text>
+        <text class="purchase_tab_right_soldout" wx:elif="{{ datas.data.status=='2' }}">抢光了</text>
+        <text class="purchase_tab_right_soldout" wx:else>已下架</text>
+      </view>
+    </view>
+  </block>
+  <view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+    <view class="zan-dialog__mask" bindtap="toggleDialog" catchtouchmove='true' />
+    <view class="zan-dialog__container" catchtouchmove='true'>
+      <view class="row1" bindtap="toggleDialog">
+        <text wx:if="{{datas.data.buyLimit>0}}">每人限购{{ datas.data.buyLimit }}件</text>
+        <text wx:else>不限购</text>
+        <image src="/images/icons/cancel.png"></image>
+      </view>
+      <view class="row2">
+        <text>数量：</text>
+        <view class="quantity_option">
+          <template is="zan-quantity" data="{{ ...quantity1, componentId: 'quantity1' }}" />
+        </view>
+      </view>
+      <view class="row3">
+        <text class="row3_title">实付款：</text>
+        <text class="row3_price">¥{{totalPrice}}</text>
+      </view>
+
+      <button class='row4' hover-class='none' bindtap='confirmOrder' id="{{ datas.data.goodsId }}">
+          立即抢购
+      </button>
+    </view>
+  </view>
+  <loading hidden="{{loadingHidden}}">
+    加载中
+  </loading>
+  <modal title="提示" confirm-text="确定" no-cancel hidden="{{modalHidden}}" bindconfirm="Request">
+    <icon type="warn" size="20" />网络异常，稍后再试
+  </modal>
+</view>

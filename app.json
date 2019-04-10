@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/goodsdetails/goodsdetails",
+    "pages/order/orderresult/orderresult",
+    "pages/order/ordercheck/ordercheck",
+    "pages/order/orderlist/orderlist",
+    "pages/order/orderdetail/orderdetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "ljShop",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f2f2f2",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "好物",
+        "iconPath": "images/icons/icon_inshow_unselected.png",
+        "selectedIconPath": "images/icons/icon_inshow_selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/icons/icon_mine_unselected.png",
+        "selectedIconPath": "images/icons/icon_mine_selected.png"
+      }
+    ],
+    "borderStyle": "white",
+    "color": "#666666",
+    "selectedColor": "#f64040",
+    "backgroundColor": "#fbfbfb"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

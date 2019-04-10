@@ -1,0 +1,43 @@
+
+@import "../../widget/common/common.wxss";
+
+.tags-view-bg {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 24rpx;
+  padding-top: 38rpx;
+  padding-right: 8rpx;
+  padding-bottom: 2rpx;
+  border-bottom: 2rpx solid #f8f8f8;
+}
+
+.fixed-tags {
+  position: fixed;
+  top: 0;
+}
+
+.tags-item {
+  border-radius: 112rpx;
+  height: 56rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 28rpx;
+  margin-right: 14rpx;
+  line-height: 37rpx;
+}
+
+.tags-selected {
+  color: #fff;
+  font-weight: bold;
+  background-color: #f64040;
+}
+
+.tags-unSelected {
+  color: #606060;
+  background-color: #f9f9f9;
+}

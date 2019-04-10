@@ -1,0 +1,138 @@
+/* pages/my/orderdetail/orderdetail.wxss */
+
+.orderinfo {
+  border-top: solid 1rpx #e6e6e6;
+  border-bottom: solid 1rpx #e6e6e6;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 24rpx;
+  color: #989898;
+  padding: 24rpx;
+  line-height: 40rpx;
+}
+
+.orderno_line {
+  display: flex;
+}
+
+.order_status {
+  color: #f64040;
+  flex: 1 0 auto;
+  text-align: right;
+}
+
+.item_content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 24rpx;
+  background-color: #fff;
+}
+
+.goods {
+  height: 160rpx;
+  display: flex;
+  padding-right: 24rpx;
+  align-items: center;
+  border-bottom: solid 1rpx #e6e6e6;
+}
+
+.goods image {
+  width: 120rpx;
+  height: 120rpx;
+  flex: none;
+}
+
+.goodsname_block {
+  height: 120rpx;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.goodsname {
+  display: flex;
+  max-height: 60rpx;
+  color: #333;
+  font-size: 26rpx;
+  align-items: baseline;
+}
+
+.goodsname image {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 4rpx;
+  margin-left: 10rpx;
+  flex: none;
+}
+
+.goodsprice {
+  margin-top: 15rpx;
+  display: flex;
+  align-items: baseline;
+}
+
+.goodsprice .price {
+  color: #333;
+  font-size: 26rpx;
+}
+
+.goodsprice .retailprice {
+  color: #b2b2b2;
+  font-size: 22rpx;
+  text-decoration: line-through;
+  margin-left: 10rpx;
+}
+
+.goodsprice .quantity {
+  color: #333;
+  font-size: 26rpx;
+  margin-left: 40rpx;
+}
+
+.item_foot {
+  height: 88rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  display: flex;
+  align-items: center;
+}
+
+.payment_title {
+  font-size: 24rpx;
+  color: #666;
+  flex: none;
+}
+
+.payment_symbol {
+  font-size: 22rpx;
+  color: #f64040;
+  margin-left: 10rpx;
+  flex: none;
+}
+
+.payment_amount {
+  font-size: 30rpx;
+  color: #f64040;
+  margin-left: 5rpx;
+  flex: auto;
+}
+
+.action_button {
+  width: 144rpx;
+  height: 56rpx;
+  text-align: center;
+  border: solid 1rpx #f64040;
+  border-radius: 8rpx;
+  color: #f64040;
+  line-height: 56rpx;
+  font-size: 24rpx;
+  flex: none;
+}
+
+.isrefund {
+  color: #989898;
+  font-size: 24rpx;
+  flex: none;
+}
