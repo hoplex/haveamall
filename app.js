@@ -3,7 +3,7 @@ var userApi = require('/api/user.js');
 
 App({
   globalData: {    
-    itapiBase: "https://api.it120.cc/havamall",
+    itapiBase: "https://api.it120.cc/haveamall",
     userInfo: {}
   },
   onLaunch: function() {
