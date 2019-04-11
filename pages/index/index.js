@@ -17,7 +17,11 @@ Page({
     fixTop: 0,
     swiperAutoplay: true,
     currentSwiper: 0,
+    tagId: -1,
+    tags: [],
+    pageIdx: 1,
     banners: [],
+    retArr: []
     }, 
     goodsWidget, 
     tagsWidget
@@ -35,13 +39,9 @@ Page({
   initData: function() {
     var that = this
 
-    that.setData({
-      'tagId': -1
-    })
-
     configApi.getBanner(that)
     goodsApi.getCategory(that)
-    goodsApi.getGoodsList(that, true)
+    goodsApi.GetGoodsList(that)
   },
 
   getFixTop: function() {
@@ -76,6 +76,11 @@ Page({
   onClickTag: function(e) {
     var that = this
     var tags = that.data.tags
+
+    if (tags[e.currentTarget.id].id == that.data.tagId) {
+      return;
+    }
+
     for (var index in tags) {
       tags[index].check = false
     }
@@ -83,11 +88,13 @@ Page({
     tags[e.currentTarget.id].check = true
     var tagId = tags[e.currentTarget.id].id
     that.setData({
-      'tagId': tagId,
-      'tags': tags
+      tagId: tagId,
+      tags : tags,
+      pageIdx: 1,
+      retArr: []
     })
 
-    goodsApi.getGoodsList(that, true)
+    goodsApi.GetGoodsList(that)
     that.onScrollTagView()
   },
 
@@ -118,7 +125,7 @@ Page({
   onShow: function() {
     var that = this
     that.setData({
-      'swiperAutoplay': true
+      swiperAutoplay : true
     })
   },
 
@@ -127,7 +134,7 @@ Page({
    */
   onHide: function() {
     this.setData({
-      'swiperAutoplay': false
+      swiperAutoplay : false
     })
   },
 
@@ -142,7 +149,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    this.initData()
+    this.setData({
+      pageIdx: 1,
+      retArr : []
+    });
+    goodsApi.GetGoodsList(this)
     setTimeout(function() {
       wx.stopPullDownRefresh()
     }, 600)
@@ -152,7 +163,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    goodsApi.getGoodsList(this)
+    this.setData({
+      pageIdx: this.data.pageIdx+1
+    });
+    goodsApi.GetGoodsList(this)
   },
 
   onShareAppMessage: function(res) {
@@ -168,7 +182,7 @@ Page({
     var fixTop = that.data.fixTop
     if (fixTop <= 0) {
       that.setData({
-        'isTagShow': false
+        isTagShow : false
       });
       return;
     }
@@ -177,13 +191,13 @@ Page({
     if (fixTop < scrollTop) {
       if (!isTagShow) {
         that.setData({
-          'isTagShow': true
+          isTagShow : true
         });
       }
     } else {
       if (isTagShow) {
         that.setData({
-          'isTagShow': false
+          isTagShow : false
         });
       }
     }

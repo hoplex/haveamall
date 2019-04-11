@@ -73,11 +73,17 @@ function getCategory(page) {
   })
 }
 
-function getGoodsList(page, refresh) {
-  var that = page
-  var tagId = that.data.tagId
-  
-  var paramMap = {};
+function GetGoodsList(fromPage) {
+  var that    = fromPage
+  var tagId   = that.data.tagId
+  var pageIdx = that.data.pageIdx
+
+  console.log("松：加载第"+pageIdx+"页")
+
+  var paramMap = {
+    page: pageIdx,
+    pageSize: app.globalData.pageSize
+  };
 
   if(tagId>0){
     paramMap.categoryId = tagId;
@@ -91,9 +97,16 @@ function getGoodsList(page, refresh) {
       
       if (res.data.code == 0) {
         retArr = getProcessRetArr(res.data.data)
+      } else if (res.data.code == 700) {
+        //没有加载到更多数据，修正下当前页
+        pageIdx = pageIdx > 1 ? pageIdx - 1 : pageIdx
+        that.data.pageIdx = pageIdx
       }
+
+      var catArr = that.data.retArr.concat(retArr);
+
       that.setData({
-        'retArr': retArr
+        retArr : catArr
       })
     }
   })
@@ -142,7 +155,7 @@ function displayValidityEnd(res) {
 }
 
 module.exports = {
-  'getGoodsList': getGoodsList,
+  'GetGoodsList': GetGoodsList,
   'getCategory': getCategory,
   'getDetailedGoods': getDetailedGoods
 }
