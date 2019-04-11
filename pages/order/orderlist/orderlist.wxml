@@ -4,7 +4,7 @@
     <view class="order_item" wx:for="{{datas}}" wx:key="orderId" catchtap="orderDetail" id="{{item.orderId}}">
       <view class="item_head">
         <image class="merchant_icon" src="/images/icons/orderlist_merchant.png"></image>
-        <text class="merchant_name">青姿</text>
+        <text class="merchant_name">{{item.merchantName}}</text>
         <image class="arrow" src="/images/icons/arrow_right.png"></image>
         <text class="order_status" wx:if="{{item.status==-1}}">交易取消</text>
         <text class="order_status" wx:elif="{{item.status==0}}">待支付</text>

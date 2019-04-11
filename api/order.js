@@ -146,6 +146,7 @@ function getMyOrderList(page)
         paramOrder.orderId = orderList[i].id
         paramOrder.status = orderList[i].status
         paramOrder.orderAmount = orderList[i].amountReal
+        paramOrder.merchantName = app.globalData.merchantName;
 
         var goodsItem = goodsMap[orderList[i].id + ''][0]; 
         paramOrder.orderGoods = []

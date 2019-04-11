@@ -4,6 +4,7 @@ var userApi = require('/api/user.js');
 App({
   globalData: {    
     itapiBase: "https://api.it120.cc/haveamall",
+    merchantName: '青姿',
     userInfo: {}
   },
   onLaunch: function() {

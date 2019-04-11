@@ -109,7 +109,7 @@ function getProcessRetArr(retArr) {
     item.retailPriceFloat = parseFloat(item.originalPrice)
     item.tagType = item.characteristic
     item.title = item.name
-    item.merchantName = "青姿"
+    item.merchantName = app.globalData.merchantName
     if (item.recommendStatus==1){
       item.tagTime = '推荐'
     }
