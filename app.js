@@ -5,7 +5,7 @@ App({
   globalData: {    
     itapiBase: "https://api.it120.cc/haveamall",
     merchantName: '青姿',
-    pageSize:5,
+    pageSize:15,
     userInfo: {}
   },
   onLaunch: function() {
