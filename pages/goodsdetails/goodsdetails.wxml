@@ -5,7 +5,15 @@
 <view class="container">
   <view class="main_page">
     <view class="main_info">
-      <image src="{{datas.data.basicInfo.pic}}" class="head_img" mode="aspectFill"></image>
+    <swiper class="swiper" autoplay='true' interval='5000' indicator-dots = 'true'>
+        <block wx:for='{{ datas.data.pics }}' wx:key='id' wx:for-index='index'>
+          <swiper-item>
+            <image src="{{datas.data.pics[index].pic}}" class="head_img" mode="aspectFill">
+            </image>
+          </swiper-item>
+        </block>
+      </swiper>
+      
       <text class="title">{{datas.data.basicInfo.name}}</text>
       <view class='buylimit_refund_item'>
         <view class="buylimit_refund_left">
