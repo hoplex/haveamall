@@ -128,41 +128,56 @@ function payOrder(orderId, amount, sucCallback) {
 function getMyOrderList(page)
 {
   var that = page;
+  var pageIdx = that.data.pageIdx
+
+  var paramMap = {
+    page: pageIdx,
+    pageSize: app.globalData.pageSize,
+    token: app.globalData.userInfo.token
+  };
 
   wx.request({
     url: app.globalData.itapiBase + '/order/list',
-    data: {
-      token: app.globalData.userInfo.token
-    },
+    data: paramMap,
     success: function (res) {
-      var orderList = res.data.data.orderList;
-      var goodsMap = res.data.data.goodsMap;
-      var orderParamList = [];
 
-      for(var i =0; i<orderList.length;i++)
-      {
-        var paramOrder = {};
+      var retArr = that.data.datas;
 
-        paramOrder.orderId = orderList[i].id
-        paramOrder.status = orderList[i].status
-        paramOrder.orderAmount = orderList[i].amountReal
-        paramOrder.merchantName = app.globalData.merchantName;
+      if (res.data.code == 0) {
+        var orderList = res.data.data.orderList;
+        var goodsMap = res.data.data.goodsMap;
+        var orderParamList = [];
 
-        var goodsItem = goodsMap[orderList[i].id + ''][0]; 
-        paramOrder.orderGoods = []
-        var orderGoods = {};
-        paramOrder.orderGoods.push(orderGoods)
-        orderGoods.logo = goodsItem.pic
-        orderGoods.title = goodsItem.goodsName
-        orderGoods.price = goodsItem.amount
-        orderGoods.retailPrice = goodsItem.amount
-        orderGoods.quantity = goodsItem.number
+        for (var i = 0; i < orderList.length; i++) {
+          var paramOrder = {};
 
-        orderParamList.push(paramOrder);
+          paramOrder.orderId = orderList[i].id
+          paramOrder.status = orderList[i].status
+          paramOrder.orderAmount = orderList[i].amountReal
+          paramOrder.merchantName = app.globalData.merchantName;
+
+          var goodsItem = goodsMap[orderList[i].id + ''][0];
+          paramOrder.orderGoods = []
+          var orderGoods = {};
+          paramOrder.orderGoods.push(orderGoods)
+          orderGoods.logo = goodsItem.pic
+          orderGoods.title = goodsItem.goodsName
+          orderGoods.price = goodsItem.amount
+          orderGoods.retailPrice = goodsItem.amount
+          orderGoods.quantity = goodsItem.number
+
+          orderParamList.push(paramOrder);
+        }
+
+        retArr = retArr.concat(orderParamList)
+      } else if (res.data.code == 404) {
+        //没有加载到更多数据，修正下当前页
+        pageIdx = pageIdx > 1 ? pageIdx - 1 : pageIdx
+        that.data.pageIdx = pageIdx
       }
 
       that.setData({
-        datas: orderParamList,
+        datas: retArr,
         loadingHidden: true,
         modalHidden: true,
       });

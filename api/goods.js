@@ -78,8 +78,6 @@ function GetGoodsList(fromPage) {
   var tagId   = that.data.tagId
   var pageIdx = that.data.pageIdx
 
-  console.log("松：加载第"+pageIdx+"页")
-
   var paramMap = {
     page: pageIdx,
     pageSize: app.globalData.pageSize

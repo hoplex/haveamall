@@ -20,8 +20,8 @@ Page({
     tagId: -1,
     tags: [],
     pageIdx: 1,
-    banners: [],
-    retArr: []
+    retArr: [],
+    banners: []
     }, 
     goodsWidget, 
     tagsWidget

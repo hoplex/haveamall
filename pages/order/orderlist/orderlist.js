@@ -4,7 +4,8 @@ var orderApi = require('../../../api/order.js');
 
 Page({
   data: {
-    datas: {},
+    datas: [],
+    pageIdx: 1,
     loadingHidden: true,
     modalHidden: true,
   },
@@ -14,17 +15,23 @@ Page({
       loadingHidden: false,
       modalHidden: true,
     });
-    var userInfo = app.globalData.userInfo;
-
     orderApi.getMyOrderList(that);
   },
 
   //上拉加载更多
   onReachBottom: function() {
+    this.setData({
+      pageIdx: this.data.pageIdx + 1
+    });
+    this.Request();
   },
 
   //下拉刷新
   onPullDownRefresh: function() {
+    this.setData({
+      pageIdx: 1,
+      datas: []
+    });
     this.Request();
   },
 
